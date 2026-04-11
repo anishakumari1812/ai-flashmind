@@ -1,0 +1,20 @@
+# FlashMind AI – Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# ── Core framework ──────────────────────────────────────────────────────────
+streamlit>=1.32.0
+
+# ── AI / LLM ────────────────────────────────────────────────────────────────
+openai>=1.12.0
+
+# ── PDF extraction ──────────────────────────────────────────────────────────
+pdfplumber>=0.10.3
+
+# ── Database (built-in with Python, listed for clarity) ──────────────────────
+# sqlite3 is part of the Python standard library – no install needed
+
+# ── Security (built-in, listed for clarity) ──────────────────────────────────
+# hashlib is part of the Python standard library – no install needed
+
+# ── Optional: alternative PDF library ───────────────────────────────────────
+# PyMuPDF>=1.23.0   # Uncomment if you prefer fitz over pdfplumber
