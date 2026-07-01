@@ -236,13 +236,13 @@ div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .
         st.markdown("<div style='height:0.8rem'></div>", unsafe_allow_html=True)
 
         username = st.text_input("Email / Username",
-            placeholder="Enter your username", key="l_user")
+            placeholder="Enter your username", key="signup_user")
 
         # Space between username and password
         st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
 
         password = st.text_input("Password", type="password",
-            placeholder="Enter your password", key="l_pass")
+            placeholder="Enter your password", key="signup_pass")
 
         # Space between password and login button
         st.markdown("<div style='height:1.2rem'></div>", unsafe_allow_html=True)
