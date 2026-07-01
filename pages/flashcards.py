@@ -165,14 +165,14 @@ def render_sidebar():
         st.markdown("---")
         st.markdown(f"👤 **{st.session_state.get('username','User')}**")
         st.markdown("---")
-        if st.button("🏠 Home"):
+        if st.button(" Home"):
             st.session_state.page = "home"
             st.rerun()
-        if st.button("⚙️ Settings"):
+        if st.button(" Settings"):
             st.session_state.page = "settings"
             st.rerun()
         st.markdown("---")
-        if st.button("🚪 Logout"):
+        if st.button("Logout"):
             for k in ["logged_in","username","flashcards","study_text","quiz_data"]:
                 st.session_state.pop(k, None)
             st.session_state.page = "auth"
@@ -180,7 +180,7 @@ def render_sidebar():
         cards = st.session_state.get("flashcards")
         if cards:
             st.markdown("---")
-            st.markdown("### 📊 Stats")
+            st.markdown("###  Stats")
             st.metric("Flashcards", len(cards))
             quiz = st.session_state.get("quiz_data")
             if quiz:
@@ -200,13 +200,13 @@ def show_flashcards_page():
                 st.session_state.page = "home"
                 st.rerun()
             return
-        with st.spinner("🤖 AI is generating your flashcards (min 15)…"):
+        with st.spinner("AI is generating your flashcards (min 15)…"):
             try:
                 st.session_state.flashcards = generate_flashcards_safe(study_text)
                 st.session_state.card_idx = 0
                 st.session_state.card_flipped = False
             except RuntimeError as e:
-                st.error(f"❌ {e}")
+                st.error(f" {e}")
                 if st.button("← Back to Home"):
                     st.session_state.page = "home"
                     st.rerun()
@@ -216,7 +216,7 @@ def show_flashcards_page():
     if not st.session_state.get("quiz_data"):
         study_text = st.session_state.get("study_text","")
         if study_text:
-            with st.spinner("🧪 Generating 10 quiz questions…"):
+            with st.spinner(" Generating 10 quiz questions…"):
                 try:
                     st.session_state.quiz_data = generate_quiz_safe(study_text)
                     st.session_state.quiz_answers = {}
@@ -236,10 +236,10 @@ def show_flashcards_page():
     # ── Header ────────────────────────────────────────────────────────────────
     st.markdown(f"""
 <div class="fc-header">
-    <h1>📚 Your Flashcards</h1>
+    <h1> Your Flashcards</h1>
     <p>Click a card to flip and reveal the answer.</p>
-    <span class="badge">✅ {len(flashcards)} cards</span>
-    {'<span class="badge" style="margin-left:0.5rem;">🧪 10 quiz questions</span>' if quiz_data else ''}
+    <span class="badge"> {len(flashcards)} cards</span>
+    {'<span class="badge" style="margin-left:0.5rem;"> 10 quiz questions</span>' if quiz_data else ''}
 </div>
 """, unsafe_allow_html=True)
 
@@ -252,7 +252,7 @@ def show_flashcards_page():
 """, unsafe_allow_html=True)
 
     # ── Tabs: Flashcards | Quiz ───────────────────────────────────────────────
-    tab_fc, tab_quiz = st.tabs(["📖  Flashcards", "🧪  Quiz"])
+    tab_fc, tab_quiz = st.tabs(["  Flashcards", "  Quiz"])
 
     # ══════════════════════════════════════════════════════════════════════════
     #  FLASHCARDS TAB
@@ -290,7 +290,7 @@ def show_flashcards_page():
         <div class="flip-card-front">
             <div class="q-label">Question {idx+1}</div>
             <div class="q-text">{q}</div>
-            <div class="hint">👆 Click to reveal answer</div>
+            <div class="hint"> Click to reveal answer</div>
         </div>
         <div class="flip-card-back">
             <div class="a-label">Answer</div>
@@ -376,7 +376,7 @@ def show_flashcards_page():
     border:1.5px solid #bbf7d0;margin-bottom:1.4rem;
     box-shadow:0 2px 12px rgba(74,175,80,0.08);">
     <span style="font-weight:700;color:#14532d;font-size:1rem;">
-        🧪 Quiz — {len(quiz_data)} Questions
+         Quiz — {len(quiz_data)} Questions
     </span><br>
     <span style="font-size:0.85rem;color:#6b7280;">
         Answer all questions then click Submit to see your score.
@@ -410,9 +410,9 @@ def show_flashcards_page():
                     # Show result after submit
                     if submitted and chosen:
                         if chosen == correct:
-                            st.success(f"✅ Correct! — {q['explanation']}")
+                            st.success(f" Correct! — {q['explanation']}")
                         else:
-                            st.error(f"❌ Incorrect. Correct answer: **{correct}**\n\n{q['explanation']}")
+                            st.error(f" Incorrect. Correct answer: **{correct}**\n\n{q['explanation']}")
 
                     st.markdown("<div style='height:0.4rem'></div>", unsafe_allow_html=True)
 
@@ -422,7 +422,7 @@ def show_flashcards_page():
                 _, mid, _ = st.columns([1, 2, 1])
                 with mid:
                     st.markdown('<div class="primary-btn">', unsafe_allow_html=True)
-                    if st.button("Submit Quiz ✅", key="submit_quiz", use_container_width=True):
+                    if st.button("Submit Quiz ", key="submit_quiz", use_container_width=True):
                         answered = sum(1 for v in st.session_state.quiz_answers.values() if v)
                         if answered < len(quiz_data):
                             st.warning(f"Please answer all {len(quiz_data)} questions first. ({answered}/{len(quiz_data)} answered)")
@@ -444,7 +444,7 @@ def show_flashcards_page():
     <div style="font-size:2.5rem;font-weight:800;color:{color};">{score}/{len(quiz_data)}</div>
     <div style="font-size:1.1rem;font-weight:700;color:#374151;margin-top:0.3rem;">{pct}% Score</div>
     <div style="font-size:0.88rem;color:#6b7280;margin-top:0.3rem;">
-        {"🎉 Excellent work!" if pct>=80 else "👍 Good effort!" if pct>=60 else "📖 Keep studying!"}
+        {" Excellent work!" if pct>=80 else " Good effort!" if pct>=60 else " Keep studying!"}
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -452,7 +452,7 @@ def show_flashcards_page():
                 _, mid, _ = st.columns([1, 2, 1])
                 with mid:
                     st.markdown('<div class="outline-btn">', unsafe_allow_html=True)
-                    if st.button("🔄 Retake Quiz", key="retake", use_container_width=True):
+                    if st.button(" Retake Quiz", key="retake", use_container_width=True):
                         st.session_state.quiz_answers   = {}
                         st.session_state.quiz_submitted = False
                         st.rerun()

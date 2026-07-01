@@ -33,7 +33,7 @@ def inject_home_styles():
             overflow: hidden;
         }
         .home-hero::before {
-            content: "🧠";
+            content: "";
             position: absolute;
             right: 2rem;
             top: 50%;
@@ -146,31 +146,31 @@ def inject_home_styles():
 
 def render_sidebar():
     with st.sidebar:
-        st.markdown("## 🧠 FlashMind AI")
+        st.markdown("##  FlashMind AI")
         st.markdown("---")
-        st.markdown(f"👤 **{st.session_state.get('username', 'User')}**")
+        st.markdown(f" **{st.session_state.get('username', 'User')}**")
         st.markdown("---")
 
-        if st.button("📚 My Flashcards"):
+        if st.button(" My Flashcards"):
             if st.session_state.get("flashcards"):
                 st.session_state.page = "flashcards"
                 st.rerun()
             else:
                 st.warning("Generate flashcards first!")
 
-        if st.button("⚙️ Settings"):
+        if st.button(" Settings"):
             st.session_state.page = "settings"
             st.rerun()
 
         st.markdown("---")
-        if st.button("🚪 Logout"):
+        if st.button(" Logout"):
             for key in ["logged_in", "username", "flashcards", "study_text"]:
                 st.session_state.pop(key, None)
             st.session_state.page = "auth"
             st.rerun()
 
         st.markdown("---")
-        st.caption("💡 Tip: Upload a PDF or paste your notes to get started!")
+        st.caption(" Tip: Upload a PDF or paste your notes to get started!")
 
 
 def show_home_page():
@@ -185,15 +185,15 @@ def show_home_page():
     with hero_col:
         st.markdown(f"""
         <div class="home-hero">
-            <h1>🧠 FlashMind AI</h1>
-            <div class="welcome">Welcome, <strong>{username}</strong> 👋</div>
+            <h1> FlashMind AI</h1>
+            <div class="welcome">Welcome, <strong>{username}</strong> </div>
             <div class="subtitle">How would you like to study today?</div>
         </div>
         """, unsafe_allow_html=True)
 
     with btn_col:
         st.markdown('<div class="settings-btn">', unsafe_allow_html=True)
-        if st.button("⚙️ Settings", key="hero_settings_btn"):
+        if st.button(" Settings", key="hero_settings_btn"):
             st.session_state.page = "settings"
             st.rerun()
         st.markdown('</div>', unsafe_allow_html=True)
@@ -202,7 +202,7 @@ def show_home_page():
     col1, col2 = st.columns([1.15, 1], gap="large")
 
     with col1:
-        st.markdown("""<div class="input-card"><h3>📝 Paste Your Notes</h3></div>""", unsafe_allow_html=True)
+        st.markdown("""<div class="input-card"><h3> Paste Your Notes</h3></div>""", unsafe_allow_html=True)
         notes_text = st.text_area(
             label="Your notes",
             placeholder="Paste your study notes, lecture summaries, or any text here…",
@@ -211,7 +211,7 @@ def show_home_page():
         )
 
     with col2:
-        st.markdown("""<div class="input-card"><h3>📄 Upload a PDF</h3></div>""", unsafe_allow_html=True)
+        st.markdown("""<div class="input-card"><h3> Upload a PDF</h3></div>""", unsafe_allow_html=True)
         pdf_file = st.file_uploader(
             label="Upload PDF",
             type=["pdf"],
@@ -219,23 +219,23 @@ def show_home_page():
             label_visibility="collapsed",
         )
         if pdf_file:
-            st.success(f"✅ **{pdf_file.name}** uploaded successfully!")
+            st.success(f" **{pdf_file.name}** uploaded successfully!")
 
     st.markdown("<br>", unsafe_allow_html=True)
 
     # ── Generate ───────────────────────────────────────────────────────────────
-    if st.button("✨ Generate Flashcards", key="generate_btn"):
+    if st.button(" Generate Flashcards", key="generate_btn"):
         study_text = ""
 
         if pdf_file:
-            with st.spinner("📖 Extracting text from PDF…"):
+            with st.spinner(" Extracting text from PDF…"):
                 try:
                     study_text = extract_text_from_pdf(pdf_file.read())
                     if not study_text:
-                        st.error("❌ Could not extract text from this PDF. Try pasting the content manually.")
+                        st.error(" Could not extract text from this PDF. Try pasting the content manually.")
                         return
                     study_text = truncate_text(study_text, max_chars=4000)
-                    st.info(f"📄 Extracted **{len(study_text):,}** characters from PDF.")
+                    st.info(f" Extracted **{len(study_text):,}** characters from PDF.")
                 except RuntimeError as e:
                     st.error(str(e))
                     return
@@ -244,7 +244,7 @@ def show_home_page():
             study_text = truncate_text(notes_text.strip(), max_chars=4000)
 
         else:
-            st.warning("⚠️ Please paste some notes or upload a PDF first.")
+            st.warning(" Please paste some notes or upload a PDF first.")
             return
 
         st.session_state.study_text  = study_text

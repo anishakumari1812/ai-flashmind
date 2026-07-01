@@ -165,7 +165,7 @@ div[data-testid="stExpander"] {
     with col1:
         new_name = st.text_input("Full Name",
             value=profile["full_name"],
-            placeholder="e.g. Anisha Kumar",
+            placeholder="Enter your full name",
             key="s_name")
     with col2:
         new_age = st.number_input("Age",
@@ -177,7 +177,7 @@ div[data-testid="stExpander"] {
     if st.button("Save Profile \U0001f4be", key="save_profile"):
         result = update_profile(username, new_name, new_age)
         if result["success"]:
-            st.success("✅ " + result["message"])
+            st.success( result["message"])
             st.session_state["full_name"] = new_name
         else:
             st.error(result["message"])
@@ -218,9 +218,9 @@ div[data-testid="stExpander"] {
         else:
             result = update_password(username, old_pass, new_pass)
             if result["success"]:
-                st.success("✅ " + result["message"])
+                st.success( result["message"])
             else:
-                st.error("❌ " + result["message"])
+                st.error(result["message"])
 
     st.markdown("<div style='height:0.8rem'></div>", unsafe_allow_html=True)
 
@@ -247,7 +247,7 @@ div[data-testid="stExpander"] {
     # ══════════════════════════════════════════════════════════════════════════
     #  4. DELETE ACCOUNT (danger zone)
     # ══════════════════════════════════════════════════════════════════════════
-    with st.expander("⚠️ Danger Zone — Delete Account"):
+    with st.expander(" Danger Zone — Delete Account"):
         st.markdown("""
 <p style="color:#dc2626;font-size:0.88rem;font-family:'Nunito',sans-serif;
     margin:0 0 0.8rem;font-weight:700;">
@@ -271,7 +271,7 @@ div[data-testid="stExpander"] {
                     st.session_state.auth_mode = "login"
                     st.rerun()
                 else:
-                    st.error("❌ " + result["message"])
+                    st.error(result["message"])
         st.markdown('</div>', unsafe_allow_html=True)
 
     st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)

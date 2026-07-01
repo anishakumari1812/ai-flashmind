@@ -12,7 +12,7 @@ def show_login_page():
 
 #MainMenu,footer,header{visibility:hidden!important;}
 section[data-testid="stSidebar"]{display:none!important;}
-.stApp{background:#f0f4f0!important;}
+.stApp{background:#eef2ee!important;}
 .block-container{padding:0!important;max-width:100%!important;margin:0!important;}
 div[data-testid="stVerticalBlock"]{gap:0!important;}
 
@@ -21,98 +21,103 @@ div[data-testid="stHorizontalBlock"]{
     gap:0!important;flex-wrap:nowrap!important;
     min-height:100vh!important;align-items:stretch!important;
 }
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]{
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]{
     padding:0!important;min-height:100vh!important;
 }
 
-/* ── LEFT col ── */
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child{
-    background:#f0f4f0!important;
+/* ── LEFT col: soft green bg, flex center ── */
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child{
+    background:#eef2ee!important;
     display:flex!important;align-items:center!important;
     justify-content:center!important;flex-direction:column!important;
 }
 
-/* ── RIGHT col — untouched ── */
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:last-child{
+/* ── RIGHT col: dark green gradient ── */
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:last-child{
     background:linear-gradient(150deg,#2d6a30 0%,#1a5c20 55%,#0f3d14 100%)!important;
 }
 
-/* ── Left inner vertical stack ── */
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child
+/* ── Inner vertical stack — center all children ── */
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child
 > div[data-testid="stVerticalBlock"]{
     display:flex!important;flex-direction:column!important;
     align-items:center!important;gap:0!important;
     padding:0!important;width:100%!important;
 }
 
-/* ── All widgets in left col: 320px centered ── */
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .stTextInput,
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .stButton,
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .stAlert,
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .element-container{
-    width:320px!important;max-width:320px!important;
+/* ── Fix all widgets to 360px centered ── */
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stTextInput,
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stButton,
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stAlert,
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .element-container{
+    width:360px!important;max-width:360px!important;
 }
 
-/* ── Label: bold, dark green, CENTERED ── */
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .stTextInput label,
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .stTextInput label p,
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .stTextInput label span,
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child [data-testid="stTextInputRootElement"] label,
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child [data-testid="stTextInputRootElement"] label p{
+/* ── Input label: left-aligned, bold, dark ── */
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stTextInput label,
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stTextInput label p,
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stTextInput label span,
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child [data-testid="stTextInputRootElement"] label,
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child [data-testid="stTextInputRootElement"] label p{
     font-family:'Nunito',sans-serif!important;
-    font-weight:800!important;
-    color:#166534!important;
-    font-size:0.88rem!important;
+    font-weight:700!important;
+    color:#2d3748!important;
+    font-size:0.87rem!important;
     text-align:left!important;
     display:block!important;
     width:100%!important;
 }
 
-/* ── Input box: centered placeholder and text ── */
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .stTextInput input,
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child [data-testid="stTextInputRootElement"] input{
+/* ── Input box ── */
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stTextInput input,
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child [data-testid="stTextInputRootElement"] input{
     font-family:'Nunito',sans-serif!important;
-    border:1.5px solid #d1fae5!important;
-    border-radius:9px!important;
+    border:1.5px solid #c6dbc6!important;
+    border-radius:10px!important;
     background:#ffffff!important;
-    font-size:0.92rem!important;
-    padding:0.65rem 1rem!important;
-    color:#6b7280!important;
+    font-size:0.93rem!important;
+    padding:0.68rem 1rem!important;
+    color:#374151!important;
     text-align:left!important;
     width:100%!important;
 }
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .stTextInput input::placeholder,
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child [data-testid="stTextInputRootElement"] input::placeholder{
-    color:#b0b8c1!important;
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stTextInput input::placeholder,
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child [data-testid="stTextInputRootElement"] input::placeholder{
+    color:#a0aec0!important;
     text-align:left!important;
 }
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .stTextInput input:focus,
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child [data-testid="stTextInputRootElement"] input:focus{
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stTextInput input:focus,
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child [data-testid="stTextInputRootElement"] input:focus{
     border-color:#4CAF50!important;
     box-shadow:0 0 0 3px rgba(74,175,80,0.15)!important;
     background:#fff!important;
 }
 
-/* ── Login button: full width green ── */
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .stButton > button{
+/* ── Login button: full width, green ── */
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stButton > button{
     font-family:'Nunito',sans-serif!important;
-    background:linear-gradient(135deg,#4CAF50,#22c55e)!important;
+    background:linear-gradient(135deg,#4CAF50,#38a169)!important;
     color:white!important;border:none!important;border-radius:10px!important;
-    padding:0.72rem 1.4rem!important;font-size:0.95rem!important;
+    padding:0.75rem 1.4rem!important;font-size:0.97rem!important;
     font-weight:700!important;width:100%!important;cursor:pointer!important;
+    letter-spacing:0.02em!important;
 }
-div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .stButton > button:hover{
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stButton > button:hover{
     filter:brightness(1.08)!important;
 }
 
-/* ── Outline button: white bg, green border ── */
+/* ── Create account: outline style ── */
 .outline-btn .stButton > button{
-    background:#fff!important;color:#16a34a!important;
-    border:2px solid #4CAF50!important;
+    background:#ffffff!important;
+    color:#38a169!important;
+    border:1.5px solid #4CAF50!important;
+    font-weight:700!important;
 }
-.outline-btn .stButton > button:hover{background:#f0fdf4!important;}
+.outline-btn .stButton > button:hover{
+    background:#f0fdf4!important;
+}
 
-/* ── Right panel classes (UNCHANGED) ── */
+/* ── Right panel ── */
 .rp-wrap{width:100%;min-height:100vh;display:flex;flex-direction:column;
     align-items:center;justify-content:center;padding:2.5rem 2rem;
     position:relative;overflow:hidden;}
@@ -148,28 +153,44 @@ div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .st
     letter-spacing:0.12em;text-transform:uppercase;font-family:'Nunito',sans-serif;
     position:relative;z-index:2;}
 
-/* ── Left side decorative elements ── */
+/* ── Left panel decorative ── */
 .brand-txt{
-    font-family:'Playfair Display',serif;font-size:1.3rem;color:#14532d;
-    font-weight:800;width:320px;text-align:left;margin-bottom:0.8rem;display:block;
+    font-family:'Playfair Display',serif;
+    font-size:1.1rem;color:#2f6b35;font-weight:700;
+    width:360px;text-align:left;
+    margin-top:2rem;
+    margin-bottom:1.2rem;
+    display:block;
 }
 .login-hdr{
-    background:#fff;border:1.5px solid #e2e8f0;border-radius:16px;
-    box-shadow:0 2px 16px rgba(0,0,0,0.08);
-    padding:1.6rem 1.6rem 1.2rem;
-    width:320px;text-align:center;margin-bottom:14px;
+    background:#ffffff;
+    border:1px solid #e2e8f0;
+    border-radius:18px;
+    box-shadow:0 2px 20px rgba(0,0,0,0.07);
+    padding:1.8rem 2rem 1.5rem;
+    width:360px;text-align:center;
+    margin-bottom:1.2rem;
 }
 .login-hdr h1{
-    font-family:'Playfair Display',serif;font-size:1.9rem;
-    font-weight:800;color:#1a202c;margin:0 0 0.3rem;
+    font-family:'Playfair Display',serif;
+    font-size:1.9rem;font-weight:800;color:#1a202c;margin:0 0 0.35rem;
 }
 .login-hdr p{font-size:0.84rem;color:#a0aec0;margin:0;}
-.or-row{display:flex;align-items:center;gap:10px;width:320px;margin:14px 0 6px;}
+.or-row{display:flex;align-items:center;gap:10px;width:360px;margin:1.2rem 0 0.8rem;}
 .or-line{flex:1;height:1px;background:#e2e8f0;}
 .or-txt{font-size:0.78rem;color:#a0aec0;font-family:'Nunito',sans-serif;}
 .no-acct{text-align:center;color:#718096;font-size:0.83rem;
-    margin-bottom:8px;font-family:'Nunito',sans-serif;width:320px;}
+    margin-top:0;margin-bottom:0.8rem;font-family:'Nunito',sans-serif;width:360px;}
 .stAlert{border-radius:10px!important;}
+
+/* ── Spacing for inputs and buttons in left col ── */
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stTextInput{
+    margin-bottom:0.8rem!important;
+}
+div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"]:first-child .stButton{
+    margin-top:0.8rem!important;
+    margin-bottom:0.4rem!important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -192,29 +213,40 @@ div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .st
 <div class="rp-dots"><div class="rp-dl"></div><div class="rp-d"></div>
 <div class="rp-d"></div></div>
 </div>
-<p class="rp-pw">POWERED BY GROQ &#183; LLAMA 3.3 70B</p>
+<p class="rp-pw">Turn your notes into quizzes & flashcards instantly using AI</p>
 </div>""", unsafe_allow_html=True)
 
-    # ── LEFT: updated to match image 1 ───────────────────────────────────────
+    # ── LEFT: exactly matching reference screenshot ────────────────────────────
     with col1:
-        # Brand name — bold, dark, left aligned
-        st.markdown('<span class="brand-txt">FlashMind AI</span>', unsafe_allow_html=True)
+        # Top spacer — pushes content down from top
+        st.markdown("<div style='height:2vh'></div>", unsafe_allow_html=True)
 
-        # Card header — "Welcome back!" centered in white card
+        st.markdown('<span class="brand-txt">FlashMind AI</span>',
+                    unsafe_allow_html=True)
+
+        # Space between brand and card
+        st.markdown("<div style='height:1rem'></div>", unsafe_allow_html=True)
+
         st.markdown("""<div class="login-hdr">
-<h1>Welcome back!</h1>
+<h1>Welcome!</h1>
 <p>Please enter your details to continue.</p>
 </div>""", unsafe_allow_html=True)
 
-        # Inputs with bold green labels
+        # Space between card and inputs
+        st.markdown("<div style='height:0.8rem'></div>", unsafe_allow_html=True)
+
         username = st.text_input("Email / Username",
             placeholder="Enter your username", key="l_user")
+
+        # Space between username and password
+        st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+
         password = st.text_input("Password", type="password",
             placeholder="Enter your password", key="l_pass")
 
-        st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
+        # Space between password and login button
+        st.markdown("<div style='height:1.2rem'></div>", unsafe_allow_html=True)
 
-        # Login button — full width green
         if st.button("Login →", key="login_btn"):
             if not username or not password:
                 st.warning("Please fill in all fields.")
@@ -228,19 +260,30 @@ div[data-testid="stHorizontalBlock"] > div[data-testid="column"]:first-child .st
                 else:
                     st.error(result["message"])
 
-        # OR divider
+        # Space + or divider
+        st.markdown("<div style='height:0.8rem'></div>", unsafe_allow_html=True)
         st.markdown("""<div class="or-row">
 <div class="or-line"></div><span class="or-txt">or</span><div class="or-line"></div>
-</div><p class="no-acct">Don't have an account?</p>""", unsafe_allow_html=True)
+</div>""", unsafe_allow_html=True)
 
-        # Create account — outline button
+        # Space between or and "Don't have account"
+        st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
+        st.markdown('<p class="no-acct">Don\'t have an account?</p>', unsafe_allow_html=True)
+
+        # Space between text and create account button
+        st.markdown("<div style='height:0.6rem'></div>", unsafe_allow_html=True)
+
         st.markdown('<div class="outline-btn">', unsafe_allow_html=True)
         if st.button("✨ Create account", key="to_signup"):
             st.session_state.auth_mode = "signup"
             st.rerun()
         st.markdown('</div>', unsafe_allow_html=True)
 
+        # Bottom spacer — equal to top for vertical centering
+        st.markdown("<div style='height:2vh'></div>", unsafe_allow_html=True)
 
+
+# ── SIGNUP PAGE: completely unchanged ────────────────────────────────────────
 def show_signup_page():
     st.markdown("""
 <style>
@@ -281,17 +324,17 @@ font-weight:700;margin:2px 0 0.8rem;">Study Smarter, Not Harder</div>
 <h1 style="font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:800;
 color:#14532d;margin:0 0 0.15rem;">Create Account</h1>
 <p style="color:#9ca3af;font-size:0.84rem;margin:0;">
-Join our community and share our mission</p>
+"Transform your notes into interactive learning"</p>
 </div>""", unsafe_allow_html=True)
 
-    new_user = st.text_input("Username", placeholder="e.g. anisha_k", key="su_user")
+    new_user = st.text_input("Username", placeholder="Enter username", key="su_user")
     new_pass = st.text_input("Password", type="password",
         placeholder="At least 6 characters", key="su_pass")
     confirm = st.text_input("Confirm Password", type="password",
         placeholder="Repeat your password", key="su_conf")
     st.markdown("<div style='height:6px'></div>", unsafe_allow_html=True)
 
-    if st.button("Register ✅", key="reg_btn"):
+    if st.button("Register", key="reg_btn"):
         if not new_user or not new_pass or not confirm:
             st.warning("Please fill in all fields.")
         elif len(new_pass) < 6:
@@ -309,7 +352,7 @@ Join our community and share our mission</p>
 
     st.markdown("""<div style="background:#f0fdf4;border:1px solid #bbf7d0;
 border-radius:12px;padding:0.8rem 1rem;margin:0.8rem 0 0.6rem;">
-<div style="font-weight:800;font-size:0.86rem;color:#166534;font-family:'Nunito',sans-serif;">
+<div style="font-weight:800;font-size:0.86rem;color:#166634;font-family:'Nunito',sans-serif;">
 &#128273; Returning User?</div>
 <div style="font-size:0.79rem;color:#6b7280;margin-top:2px;font-family:'Nunito',sans-serif;">
 Login with your Username &amp; Password</div>
