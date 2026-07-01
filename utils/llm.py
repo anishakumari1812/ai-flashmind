@@ -8,9 +8,11 @@ import os
 import json
 import re
 from typing import List, Dict
-from dotenv import load_dotenv
-
-load_dotenv()
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 # ── Prompt ─────────────────────────────────────────────────────────────────────
 FLASHCARD_SYSTEM_PROMPT = """
